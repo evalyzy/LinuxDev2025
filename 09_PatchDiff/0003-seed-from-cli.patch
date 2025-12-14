@@ -1,0 +1,27 @@
+--- maze_v2_temp.c	2025-12-14 21:12:48.643375224 +0300
++++ maze_v3_temp.c	2025-12-14 21:12:48.643503847 +0300
+@@ -123,8 +123,14 @@
+ 
+ int main(int argc, char* argv[]) {
+     const char* symbols = ".#";
++    unsigned int seed = time(NULL);
+     
+-    if (argc > 2) {
++    if (argc > 3) {
++        seed = atoi(argv[1]);
++        symbols = argv[2];
++        WIDTH = atoi(argv[3]);
++        HEIGHT = atoi(argv[3]);
++    } else if (argc > 2) {
+         symbols = argv[1];
+         WIDTH = atoi(argv[2]);
+         HEIGHT = atoi(argv[2]);
+@@ -135,7 +141,7 @@
+     
+     grid_ptr = malloc(sizeof(Cell) * WIDTH * HEIGHT);
+ 
+-    srand(time(NULL));
++    srand(seed);
+     initialize_grid();
+     generate_maze(0, 0);
+     print_maze(symbols);

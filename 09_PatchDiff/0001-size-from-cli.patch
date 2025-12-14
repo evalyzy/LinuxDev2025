@@ -1,0 +1,120 @@
+--- maze.c	2025-12-14 21:12:48.642266736 +0300
++++ maze_v1_temp.c	2025-12-14 21:12:48.643164443 +0300
+@@ -3,8 +3,8 @@
+ #include <string.h>
+ #include <time.h>
+ 
+-#define WIDTH 6
+-#define HEIGHT 6
++int WIDTH = 6;
++int HEIGHT = 6;
+ 
+ #define CELL_PATH 0
+ #define WALL 1
+@@ -15,7 +15,9 @@
+     int walls[4]; // N, S, E, W
+ } Cell;
+ 
+-Cell grid[HEIGHT][WIDTH];
++Cell* grid_ptr;
++#define grid(y,x) grid_ptr[(y)*WIDTH + (x)]
++
+ char *output_grid;
+ int output_width;
+ int output_height;
+@@ -23,10 +25,10 @@
+ void initialize_grid() {
+     for (int i = 0; i < HEIGHT; i++) {
+         for (int j = 0; j < WIDTH; j++) {
+-            grid[i][j].x = j;
+-            grid[i][j].y = i;
+-            grid[i][j].visited = 0;
+-            for(int k=0; k<4; k++) grid[i][j].walls[k] = 1;
++            grid(i,j).x = j;
++            grid(i,j).y = i;
++            grid(i,j).visited = 0;
++            for(int k=0; k<4; k++) grid(i,j).walls[k] = 1;
+         }
+     }
+ }
+@@ -35,8 +37,8 @@
+     Cell* stack[WIDTH * HEIGHT];
+     int stack_top = 0;
+ 
+-    grid[start_y][start_x].visited = 1;
+-    stack[stack_top++] = &grid[start_y][start_x];
++    grid(start_y,start_x).visited = 1;
++    stack[stack_top++] = &grid(start_y,start_x);
+ 
+     while (stack_top > 0) {
+         Cell* current = stack[--stack_top];
+@@ -46,22 +48,22 @@
+         int num_neighbors = 0;
+ 
+         // North
+-        if (y > 0 && !grid[y - 1][x].visited) {
++        if (y > 0 && !grid(y - 1,x).visited) {
+             neighbors[num_neighbors][0] = x;
+             neighbors[num_neighbors++][1] = y - 1;
+         }
+         // South
+-        if (y < HEIGHT - 1 && !grid[y + 1][x].visited) {
++        if (y < HEIGHT - 1 && !grid(y + 1,x).visited) {
+             neighbors[num_neighbors][0] = x;
+             neighbors[num_neighbors++][1] = y + 1;
+         }
+         // East
+-        if (x < WIDTH - 1 && !grid[y][x + 1].visited) {
++        if (x < WIDTH - 1 && !grid(y,x + 1).visited) {
+             neighbors[num_neighbors][0] = x + 1;
+             neighbors[num_neighbors++][1] = y;
+         }
+         // West
+-        if (x > 0 && !grid[y][x - 1].visited) {
++        if (x > 0 && !grid(y,x - 1).visited) {
+             neighbors[num_neighbors][0] = x - 1;
+             neighbors[num_neighbors++][1] = y;
+         }
+@@ -71,7 +73,7 @@
+             int r = rand() % num_neighbors;
+             int next_x = neighbors[r][0];
+             int next_y = neighbors[r][1];
+-            Cell* next = &grid[next_y][next_x];
++            Cell* next = &grid(next_y,next_x);
+ 
+             if (next_x == x && next_y == y - 1) { // N
+                 current->walls[0] = 0; next->walls[1] = 0;
+@@ -100,10 +102,10 @@
+             int out_x = x * 2 + 1;
+             int out_y = y * 2 + 1;
+             output_grid[out_y * output_width + out_x] = '.';
+-            if (grid[y][x].walls[0] == 0) output_grid[(out_y - 1) * output_width + out_x] = '.';
+-            if (grid[y][x].walls[1] == 0) output_grid[(out_y + 1) * output_width + out_x] = '.';
+-            if (grid[y][x].walls[2] == 0) output_grid[out_y * output_width + (out_x + 1)] = '.';
+-            if (grid[y][x].walls[3] == 0) output_grid[out_y * output_width + (out_x - 1)] = '.';
++            if (grid(y,x).walls[0] == 0) output_grid[(out_y - 1) * output_width + out_x] = '.';
++            if (grid(y,x).walls[1] == 0) output_grid[(out_y + 1) * output_width + out_x] = '.';
++            if (grid(y,x).walls[2] == 0) output_grid[out_y * output_width + (out_x + 1)] = '.';
++            if (grid(y,x).walls[3] == 0) output_grid[out_y * output_width + (out_x - 1)] = '.';
+         }
+     }
+ 
+@@ -117,10 +119,17 @@
+ }
+ 
+ int main(int argc, char* argv[]) {
+-    (void)argc; (void)argv; // Suppress unused warning
++    if (argc > 1) {
++        WIDTH = atoi(argv[1]);
++        HEIGHT = atoi(argv[1]);
++    }
++    grid_ptr = malloc(sizeof(Cell) * WIDTH * HEIGHT);
++
+     srand(time(NULL));
+     initialize_grid();
+     generate_maze(0, 0);
+     print_maze();
++    
++    free(grid_ptr);
+     return 0;
+ }

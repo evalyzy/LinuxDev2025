@@ -1,0 +1,60 @@
+--- maze_v1_temp.c	2025-12-14 21:12:48.643164443 +0300
++++ maze_v2_temp.c	2025-12-14 21:12:48.643375224 +0300
+@@ -91,21 +91,24 @@
+     }
+ }
+ 
+-void print_maze() {
++void print_maze(const char* symbols) {
++    char path_char = symbols[0];
++    char wall_char = symbols[1];
++
+     output_width = WIDTH * 2 + 1;
+     output_height = HEIGHT * 2 + 1;
+     output_grid = malloc(output_width * output_height);
+-    memset(output_grid, '#', output_width * output_height);
++    memset(output_grid, wall_char, output_width * output_height);
+ 
+     for (int y = 0; y < HEIGHT; y++) {
+         for (int x = 0; x < WIDTH; x++) {
+             int out_x = x * 2 + 1;
+             int out_y = y * 2 + 1;
+-            output_grid[out_y * output_width + out_x] = '.';
+-            if (grid(y,x).walls[0] == 0) output_grid[(out_y - 1) * output_width + out_x] = '.';
+-            if (grid(y,x).walls[1] == 0) output_grid[(out_y + 1) * output_width + out_x] = '.';
+-            if (grid(y,x).walls[2] == 0) output_grid[out_y * output_width + (out_x + 1)] = '.';
+-            if (grid(y,x).walls[3] == 0) output_grid[out_y * output_width + (out_x - 1)] = '.';
++            output_grid[out_y * output_width + out_x] = path_char;
++            if (grid(y,x).walls[0] == 0) output_grid[(out_y - 1) * output_width + out_x] = path_char;
++            if (grid(y,x).walls[1] == 0) output_grid[(out_y + 1) * output_width + out_x] = path_char;
++            if (grid(y,x).walls[2] == 0) output_grid[out_y * output_width + (out_x + 1)] = path_char;
++            if (grid(y,x).walls[3] == 0) output_grid[out_y * output_width + (out_x - 1)] = path_char;
+         }
+     }
+ 
+@@ -119,16 +122,23 @@
+ }
+ 
+ int main(int argc, char* argv[]) {
+-    if (argc > 1) {
++    const char* symbols = ".#";
++    
++    if (argc > 2) {
++        symbols = argv[1];
++        WIDTH = atoi(argv[2]);
++        HEIGHT = atoi(argv[2]);
++    } else if (argc > 1) {
+         WIDTH = atoi(argv[1]);
+         HEIGHT = atoi(argv[1]);
+     }
++    
+     grid_ptr = malloc(sizeof(Cell) * WIDTH * HEIGHT);
+ 
+     srand(time(NULL));
+     initialize_grid();
+     generate_maze(0, 0);
+-    print_maze();
++    print_maze(symbols);
+     
+     free(grid_ptr);
+     return 0;
