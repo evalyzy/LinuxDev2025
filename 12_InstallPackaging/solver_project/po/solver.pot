@@ -1,0 +1,43 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the solver package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: solver 1.0\n"
+"Report-Msgid-Bugs-To: bug@example.com\n"
+"POT-Creation-Date: 2025-12-14 22:27+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/main.c:18
+#, c-format
+msgid "Usage: %s <a> <b> <c>\n"
+msgstr ""
+
+#: src/main.c:29
+#, c-format
+msgid "Infinite roots\n"
+msgstr ""
+
+#: src/main.c:30
+#, c-format
+msgid "No real roots\n"
+msgstr ""
+
+#: src/main.c:31
+#, c-format
+msgid "One root: %f\n"
+msgstr ""
+
+#: src/main.c:32
+#, c-format
+msgid "Two roots: %f and %f\n"
+msgstr ""

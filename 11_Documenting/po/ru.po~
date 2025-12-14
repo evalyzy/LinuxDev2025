@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: guess 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-14 21:00+0300\n"
+"PO-Revision-Date: 2025-12-14 21:05+0300\n"
+"Last-Translator: User <user@localhost>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/guess.c:61
+msgid "Usage: guess [OPTIONS]\n"
+msgstr "Использование: guess [ОПЦИИ]\n"
+
+#: src/guess.c:62
+msgid "Guess the number game.\n\n"
+msgstr "Игра «Угадай число».\n\n"
+
+#: src/guess.c:63
+msgid "  -r         Use Roman numerals (I-C)\n"
+msgstr "  -r         Использовать римские цифры (I-C)\n"
+
+#: src/guess.c:64
+msgid "  --help     Display this help and exit\n"
+msgstr "  --help     Показать эту справку и выйти\n"
+
+#: src/guess.c:65
+msgid "  --version  Output version information and exit\n"
+msgstr "  --version  Показать информацию о версии и выйти\n"
+
+#: src/guess.c:96
+#, c-format
+msgid "Think of a number between 1 and %d.\n"
+msgstr "Загадайте число от 1 до %d.\n"
+
+#: src/guess.c:103
+#, c-format
+msgid "Is your number greater than %s? (y/n): "
+msgstr "Ваше число больше %s? (y/n): "
+
+#: src/guess.c:115
+#, c-format
+msgid "Your number is %s!\n"
+msgstr "Ваше число: %s!\n"
+

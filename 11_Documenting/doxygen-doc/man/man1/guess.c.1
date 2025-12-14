@@ -1,0 +1,111 @@
+.TH "src/guess.c" 1 "Guess Game" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/guess.c \- Number guessing game with Roman numeral support\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <libintl\&.h>\fP
+.br
+\fC#include <locale\&.h>\fP
+.br
+\fC#include 'config\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_\fP(STRING)   gettext(STRING)"
+.br
+.ti -1c
+.RI "#define \fBN_\fP   100"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBto_roman\fP (int n)"
+.br
+.RI "Convert integer to Roman numeral\&. "
+.ti -1c
+.RI "char * \fBformat_num\fP (int n, int use_roman, char *buf)"
+.br
+.RI "Format number string based on mode\&. "
+.ti -1c
+.RI "void \fBprint_help\fP ()"
+.br
+.RI "Print help message\&. Used for --help and generating man page content\&. "
+.ti -1c
+.RI "int \fBmain\fP (int argc, char *argv[])"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Number guessing game with Roman numeral support\&. 
+
+
+.PP
+\fBDate\fP
+.RS 4
+2025-12-14 
+.RE
+.PP
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _(STRING)   gettext(STRING)"
+
+.SS "#define N_   100"
+
+.SH "Function Documentation"
+.PP 
+.SS "char * format_num (int n, int use_roman, char * buf)"
+
+.PP
+Format number string based on mode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIn\fP Number to format 
+.br
+\fIuse_roman\fP 1 for Roman, 0 for Arabic 
+.br
+\fIbuf\fP Output buffer 
+.RE
+.PP
+
+.SS "int main (int argc, char * argv[])"
+
+.SS "void print_help ()"
+
+.PP
+Print help message\&. Used for --help and generating man page content\&. 
+.SS "const char * to_roman (int n)"
+
+.PP
+Convert integer to Roman numeral\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIn\fP Integer (1-100) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Roman string or '?' 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Guess Game from the source code\&.
