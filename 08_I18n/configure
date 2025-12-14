@@ -7329,10 +7329,16 @@ printf "%s\n" "#define HAVE_DCGETTEXT 1" >>confdefs.h
 
 
 
+# === 在这里插入这行代码 ===
+ALL_LINGUAS="ru"
+# ==========================
+
 # 定义 LOCALEDIR 宏供 C 代码使用
 localedir="\${datadir}/locale"
 
 
+# 注意：截图里写的是 po/Makefile.in，建议保留原样
+# 只要 AM_GNU_GETTEXT 能正确处理即可
 ac_config_files="$ac_config_files Makefile src/Makefile po/Makefile.in"
 
 cat >confcache <<\_ACEOF

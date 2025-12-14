@@ -1,0 +1,112 @@
+\doxysection{src/guess.c File Reference}
+\hypertarget{guess_8c}{}\label{guess_8c}\index{src/guess.c@{src/guess.c}}
+
+
+Number guessing game with Roman numeral support.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$libintl.\+h$>$}\newline
+{\ttfamily \#include $<$locale.\+h$>$}\newline
+{\ttfamily \#include "{}config.\+h"{}}\newline
+Include dependency graph for guess.\+c\+:
+% FIG 0
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{guess_8c_ab92bb4161a6308b302d283816975c3a6}{\+\_\+}}(STRING)~gettext(STRING)
+\item 
+\#define \mbox{\hyperlink{guess_8c_afca135e3ddf148ea7c3d1e42643999ae}{N\+\_\+}}~100
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{guess_8c_aba57a5eae7c8bb4163a8dd9a588c8fb0}{to\+\_\+roman}} (int n)
+\begin{DoxyCompactList}\small\item\em Convert integer to Roman numeral. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{guess_8c_a9b2ee67ade4922549e2e96ea021d9f63}{format\+\_\+num}} (int n, int use\+\_\+roman, char \texorpdfstring{$\ast$}{*}buf)
+\begin{DoxyCompactList}\small\item\em Format number string based on mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{guess_8c_a853216ac51aa181669ff4d3de74058a7}{print\+\_\+help}} ()
+\begin{DoxyCompactList}\small\item\em Print help message. Used for --help and generating man page content. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{guess_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Number guessing game with Roman numeral support. 
+
+\begin{DoxyDate}{Date}
+2025-\/12-\/14 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{guess_8c_ab92bb4161a6308b302d283816975c3a6}\label{guess_8c_ab92bb4161a6308b302d283816975c3a6} 
+\index{guess.c@{guess.c}!\_@{\_}}
+\index{\_@{\_}!guess.c@{guess.c}}
+\doxysubsubsection{\texorpdfstring{\_}{\_}}
+{\footnotesize\ttfamily \#define \+\_\+(\begin{DoxyParamCaption}\item[{}]{STRING }\end{DoxyParamCaption})~gettext(STRING)}
+
+\Hypertarget{guess_8c_afca135e3ddf148ea7c3d1e42643999ae}\label{guess_8c_afca135e3ddf148ea7c3d1e42643999ae} 
+\index{guess.c@{guess.c}!N\_@{N\_}}
+\index{N\_@{N\_}!guess.c@{guess.c}}
+\doxysubsubsection{\texorpdfstring{N\_}{N\_}}
+{\footnotesize\ttfamily \#define N\+\_\+~100}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{guess_8c_a9b2ee67ade4922549e2e96ea021d9f63}\label{guess_8c_a9b2ee67ade4922549e2e96ea021d9f63} 
+\index{guess.c@{guess.c}!format\_num@{format\_num}}
+\index{format\_num@{format\_num}!guess.c@{guess.c}}
+\doxysubsubsection{\texorpdfstring{format\_num()}{format\_num()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} format\+\_\+num (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{use\+\_\+roman,  }\item[{char \texorpdfstring{$\ast$}{*}}]{buf }\end{DoxyParamCaption})}
+
+
+
+Format number string based on mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number to format \\
+\hline
+{\em use\+\_\+roman} & 1 for Roman, 0 for Arabic \\
+\hline
+{\em buf} & Output buffer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{guess_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{guess_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{guess.c@{guess.c}!main@{main}}
+\index{main@{main}!guess.c@{guess.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\Hypertarget{guess_8c_a853216ac51aa181669ff4d3de74058a7}\label{guess_8c_a853216ac51aa181669ff4d3de74058a7} 
+\index{guess.c@{guess.c}!print\_help@{print\_help}}
+\index{print\_help@{print\_help}!guess.c@{guess.c}}
+\doxysubsubsection{\texorpdfstring{print\_help()}{print\_help()}}
+{\footnotesize\ttfamily void print\+\_\+help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Print help message. Used for --help and generating man page content. 
+
+\Hypertarget{guess_8c_aba57a5eae7c8bb4163a8dd9a588c8fb0}\label{guess_8c_aba57a5eae7c8bb4163a8dd9a588c8fb0} 
+\index{guess.c@{guess.c}!to\_roman@{to\_roman}}
+\index{to\_roman@{to\_roman}!guess.c@{guess.c}}
+\doxysubsubsection{\texorpdfstring{to\_roman()}{to\_roman()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} to\+\_\+roman (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Convert integer to Roman numeral. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Integer (1-\/100) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Roman string or "{}?"{} 
+\end{DoxyReturn}

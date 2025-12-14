@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: guess 1.0\n"
 "Report-Msgid-Bugs-To: user@localhost\n"
-"POT-Creation-Date: 2025-12-14 20:52+0300\n"
+"POT-Creation-Date: 2025-12-14 22:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,35 +17,44 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/guess.c:19
+#: src/guess.c:60
 #, c-format
-msgid "Please simplify pick a number between 1 and 100.\n"
+msgid "Usage: guess [OPTIONS]\n"
 msgstr ""
 
-#: src/guess.c:20
+#: src/guess.c:61
 #, c-format
-msgid "Press Enter when ready..."
+msgid ""
+"Guess the number game.\n"
+"\n"
 msgstr ""
 
-#: src/guess.c:25
+#: src/guess.c:62
 #, c-format
-msgid "Is the number greater than %d? (yes/no): "
+msgid "  -r         Use Roman numerals (I-C)\n"
 msgstr ""
 
-#: src/guess.c:32
-msgid "yes"
-msgstr ""
-
-#: src/guess.c:34
-msgid "no"
-msgstr ""
-
-#: src/guess.c:37
+#: src/guess.c:63
 #, c-format
-msgid "Please answer 'yes' or 'no'.\n"
+msgid "  --help     Display this help and exit\n"
 msgstr ""
 
-#: src/guess.c:41
+#: src/guess.c:64
 #, c-format
-msgid "Your number is %d!\n"
+msgid "  --version  Output version information and exit\n"
+msgstr ""
+
+#: src/guess.c:95
+#, c-format
+msgid "Think of a number between 1 and %d.\n"
+msgstr ""
+
+#: src/guess.c:102
+#, c-format
+msgid "Is your number greater than %s? (y/n): "
+msgstr ""
+
+#: src/guess.c:114
+#, c-format
+msgid "Your number is %s!\n"
 msgstr ""
